@@ -38,7 +38,8 @@ class Tags extends Component{
 
     const tags=this.state.tags.slice();
     tags.splice(key,1);
-
+    if (this.props.onRemove !== null) 
+      this.props.onRemove(this.state.tags[key], this.state.tags);
 
     //ok but now add this tag to autocomplete if it was there before
     if (  this.props.sourceTags.find( (tag)=>tagData.label===tag.label )  ){
